@@ -2,111 +2,173 @@
 This project is a Railway Management System API similar to IRCTC, built with Node.js, Express, and MySQL. 
 It allows users to register, log in, check train availability, book seats, and manage trains (admin only).
 
-Table of Contents
--Features
--Technologies Used
--Setup and Installation
--Environment Variables
--Database Setup
--API Endpoints
--Usage
--License
+# :notebook_with_decorative_cover: Table of Contents
 
-# Features
-User registration and authentication
-Role-based access control (Admin and User)
-Train management (Add, update)
-Check train and seat availability
-Book train seats
-JWT authentication for secure endpoints
+- [About the Project](#star2-about-the-project)
+  * [Screenshots](#camera-screenshots)
+  * [Tech Stack](#space_invader-tech-stack)
+  * [Features](#dart-features)
+  * [Environment Variables](#key-environment-variables)
+- [Getting Started](#toolbox-getting-started)
+  * [Prerequisites](#bangbang-prerequisites)
+  * [Installation](#gear-installation)
+  * [Running Tests](#test_tube-running-tests)
+  * [Run Locally](#running-run-locally)
+  * [Deployment](#triangular_flag_on_post-deployment)
+- [Usage](#eyes-usage)
+- [Contributing](#wave-contributing)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
 
-# Technologies Used
-<u>Node.js<u/>: JavaScript runtime environment.
-<u>Express</u>: Web framework for Node.js.
-<u>MySQL</u>: Relational database for storing application data.
-<u>Sequelize</u>: ORM for managing MySQL database.
-<u>bcryptjs</u>: Library for hashing passwords.
-<u>jsonwebtoken</u>: Library for creating and verifying JWTs.
-<u>dotenv</u>: Library for loading environment variables.
 
-# Setup and Installation
+  
 
-1.Clone the Repository:
-git clone https://github.com/pawanupadhyaay/railway-management-system.git
-cd railway-management-system
+<!-- About the Project -->
+## :star2: About the Project
 
-2.Install Dependencies:
-npm install
 
-3.Set Up Environment Variables:
+<!-- Screenshots -->
+### :camera: Screenshots
 
-MYSQL_HOST=localhost
-MYSQL_DATABASE=railway_management
-MYSQL_USER=root
-MYSQL_PASSWORD=your_password
-JWT_SECRET=your_jwt_secret
-PORT=5000
+<div align="center"> 
+  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+</div>
 
-4.Start the Application:
-Make sure your MySQL server is running and then start the Node.js server:
-node index.js
 
-# Environment Variables
+<!-- TechStack -->
+### :space_invader: Tech Stack
 
-The .env file should contain the following variables:
-MYSQL_HOST: Hostname for your MySQL server.
-MYSQL_DATABASE: Name of the MySQL database.
-MYSQL_USER: MySQL username.
-MYSQL_PASSWORD: MySQL password.
-JWT_SECRET: Secret key for signing JWT tokens.
-PORT: Port number on which the server will run.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
+  </ul>
+</details>
 
-# Database Setup
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
+  </ul>
+</details>
 
-1.Create MySQL Database:
-Before running the application, create a MySQL database named railway_management:
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.mysql.com/">MySQL</a></li>
+  </ul>
+</details>
 
-CREATE DATABASE railway_management;
+<!-- Features -->
+### :dart: Features
 
-2.Synchronize Models:
-When the server starts, Sequelize will automatically sync the models with the database and create the necessary tables.
+- User Registration and Authentication: Allows new users to register and authenticate themselves using a secure login system with JWT (JSON Web Token) for session management.
+- Role-Based Access Control: Supports different user roles (Admin and User) to restrict access to certain functionalities based on the user's role.
+- Add New Trains: Admins can add new trains to the system, specifying the train number, source, destination, and total seats.
+- Update Train Information: Admins can update existing train details, including available seats and routes.
+- Check Train Availability: Users can check the availability of trains between two specified stations.
+- View Seat Availability: Provides the number of available seats for each train on a specific route.
+- Book a Seat: Users can book seats on a train if available, with the system handling concurrent booking requests to prevent overbooking.
+- Real-Time Data Handling: Ensures real-time updates to seat availability, reflecting changes immediately when bookings are made.
+- Secure Endpoints: Protects sensitive endpoints using JWT authentication, ensuring that only authorized users can access specific features.
+- Error Handling and Validation: Implements robust error handling and input validation to provide meaningful error messages and prevent invalid data from entering the system.
+- Scalable Architecture: Designed with scalability in mind, allowing the system to handle a growing number of users and booking transactions efficiently.
 
-# API Endpoints
-Below are the available API endpoints:
+### :key: Environment Variables
 
-Authentication Routes
+To run this project, you will need to add the following environment variables to your .env file
 
--Register User: POST /api/auth/register
--Request Body: { "username": "your_username", "password": "your_password", "role": "user or admin" }
--Response: Success message or error.
+`API_KEY`
 
-Login User: POST /api/auth/login
--Request Body: { "username": "your_username", "password": "your_password" }
--Response: JWT token.
+`MYSQL_HOST`
 
-# Train Management (Admin Only)
+`MYSQL_DATABASE`
 
-Add Train: POST /api/trains/add
--Headers: { "Authorization": "Bearer <token>" }
--Request Body: { "trainNumber": "12345", "source": "Station A", "destination": "Station B", "totalSeats": 100 }
--Response: Success message or error.
+`MYSQL_USER`
 
-Booking Routes
+`MYSQL_PASSWORD`
 
-Check Train Availability: GET /api/trains?source=StationA&destination=StationB
--Response: List of trains available between the specified source and destination.
+`JWT_SECRET`
 
-Book Seat: POST /api/bookings
--Headers: { "Authorization": "Bearer <token>" }
--Request Body: { "trainId": "1", "seatNumber": 5 }
--Response: Success message or error.
+`PORT`
 
-Get Booking Details: GET /api/bookings/:bookingId
--Headers: { "Authorization": "Bearer <token>" }
--Response: Details of the booking.
 
-# Usage
+## 	:toolbox: Getting Started
 
+<!-- Prerequisites -->
+### :bangbang: Prerequisites
+
+This project uses npm as package manager
+
+```bash
+ npm install --global 
+```
+
+<!-- Installation -->
+### :gear: Installation
+
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
+   
+<!-- Running Tests -->
+### :test_tube: Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm test test
+```
+
+<!-- Run Locally -->
+### :running: Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/pawanupadhyaay/railway-management-API.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+<!-- Deployment -->
+### :triangular_flag_on_post: Deployment
+
+To deploy this project run
+
+```bash
+  npm deploy
+```
+
+
+<!-- Usage -->
+## :eyes: Usage
+
+Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
+
+
+```javascript
 1.Register a User: 
 Use the /api/auth/register endpoint to create a new user.
 2.Login: 
@@ -119,7 +181,35 @@ Use /api/trains to see available trains between two stations.
 Use the /api/bookings endpoint with your token to book a seat on a train.
 6.View Bookings: 
 Retrieve booking details using /api/bookings/:bookingId.
+```
+<!-- Roadmap -->
+## :compass: Roadmap
 
-# License
-This project is licensed under the MIT License.
+* [x] Phase 1: Initial Release 
+* [ ] Phase 2: Enhanced Booking Features
+* [ ] Phase 3: Real-Time Notifications
+* [ ] Phase 4: Admin Dashboard
+* [ ] Phase 5: Security and Performance Enhancements
+* [ ] Phase 7: Deployment and Scaling
 
+
+<!-- Contributing -->
+## :wave: Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+
+<!-- License -->
+## :warning: License
+
+Distributed under the no License. See LICENSE.txt for more information.
+
+
+<!-- Contact -->
+## :handshake: Contact
+
+Your Name - [@twitter_handle](https://x.com/pawanupadhyaay) - upawan7273@gmail.com
+
+Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
