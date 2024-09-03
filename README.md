@@ -107,12 +107,18 @@ Get Booking Details: GET /api/bookings/:bookingId
 
 # Usage
 
-1.Register a User: Use the /api/auth/register endpoint to create a new user.
-2.Login: Log in using the /api/auth/login endpoint to receive a JWT token.
-3.Add Trains: If you are an admin, use your token to add new trains via the /api/trains/add endpoint.
-4.Check Train Availability: Use /api/trains to see available trains between two stations.
-5.Book a Seat: Use the /api/bookings endpoint with your token to book a seat on a train.
-6.View Bookings: Retrieve booking details using /api/bookings/:bookingId.
+1.Register a User: 
+Use the /api/auth/register endpoint to create a new user.
+2.Login: 
+Log in using the /api/auth/login endpoint to receive a JWT token.
+3.Add Trains: 
+If you are an admin, use your token to add new trains via the /api/trains/add endpoint.
+4.Check Train Availability: 
+Use /api/trains to see available trains between two stations.
+5.Book a Seat: 
+Use the /api/bookings endpoint with your token to book a seat on a train.
+6.View Bookings: 
+Retrieve booking details using /api/bookings/:bookingId.
 
 # License
 This project is licensed under the MIT License.
